@@ -4,28 +4,28 @@
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
 
-## Prerequisites
+## Voraussetzungen
 
 To deploy this template, you will need:
  * Bestehendes Virtual Network
  * Bestehenden Application Gateway
  * Chef Server
 
-In the parameters, you will need to take note of:
+Parameter:
  * Name der RG des Virtuial Network
  * Name des Subnets
  * Name der RG des Application Gateway
  * Name des Backend Pool für die VMs
  * Chef URL
 
-## Deployment steps
+## Deployment
 
 Einfach "Deploy to Azure" klicken
 
-## Usage
+## Nutzung
 
-#### Connect
+#### Verbindung zu den VMs
 
 Für den Zugriff auf die VMs wird ein JumpServer oder ein Site2Site VPN benötigt. Externer Zugriff ist nicht möglich.
 
-## Notes
+## Anmerkungen
