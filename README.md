@@ -22,6 +22,7 @@ In the parameters, you will need to take note of:
  * The name of the subnet inside the Virtual Network where the create VM Scale Set will connect to
  * The name of the resource group containing the Application Gateway
  * The name of the backend pool inside the Application Gateway which will be added with instances of the VM Scale SEt
+ * Chef URL
 
 ## Deployment steps
 
