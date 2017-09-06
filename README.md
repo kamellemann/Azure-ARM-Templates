@@ -6,7 +6,7 @@
 
 ## Voraussetzungen
 
-To deploy this template, you will need:
+Folgendes wird im Vorfeld der Bereitstellung benötigt:
  * Bestehendes Virtual Network
  * Bestehenden Application Gateway
  * Chef Server
