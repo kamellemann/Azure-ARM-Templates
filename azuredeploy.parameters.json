@@ -43,7 +43,7 @@
     },
     "existingAppGatewayBackendPoolName": {
       "value": "appGatewayBackendPool"
-    }
+    },
 	 "chef_server_url": {
       "value": ""
     },
