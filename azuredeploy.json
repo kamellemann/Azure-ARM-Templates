@@ -189,16 +189,18 @@
                 "name": "ChefClient",
                 "properties": {
                   "publisher": "Chef.Bootstrap.WindowsAzure",
-					"settings": {
-						"chef_server_url": "[parameters('chef_server_url')]",
-						"validation_client_name": "[parameters('validation_client_name')]"
-						"runlist" : "[parameters('runlist')]",
-						"validation_key": "[parameters('validation_key')]"
-						},
                   "typeHandlerVersion": "1210.12",
-                  "type": "ChefClient"
-                }
+                  "type": "ChefClient",
+					"settings": {
+                                 "chef_server_url": "[parameters('chef_server_url')]",
+                                 "validation_client_name": "[parameters('validation_client_name')]"
+						},
+                  "runlist": "[parameters('runlist')]"
+                },
+            "protectedSettings": {
+            "validation_key": "[parameters('validation_key')]"            
               }
+            }
             ]
           },		  
           "networkProfile": {
