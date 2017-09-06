@@ -14,6 +14,9 @@
     "adminUsername": {
       "value": "vmssadmin"
     },
+	      "windowsOSVersion": {
+      "value": "2012-R2-Datacenter"
+    },
     "adminPassword": {
       "value": "GEN-PASSWORD"
     },
