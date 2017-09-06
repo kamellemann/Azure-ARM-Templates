@@ -190,9 +190,10 @@
                 "properties": {
                   "publisher": "Chef.Bootstrap.WindowsAzure",
 					"settings": {
-						"validation_key" : " Validation key",
-						"client_rb" : "client_rb file",
-						"runlist" : "Optional runlist"
+						"chef_server_url": "[parameters('chef_server_url')]",
+						"validation_client_name": "[parameters('validation_client_name')]"
+						"runlist" : "[parameters('runlist')]",
+						"validation_key": "[parameters('validation_key')]"
 						},
                   "typeHandlerVersion": "1210.12",
                   "type": "ChefClient"
