@@ -9,6 +9,18 @@
         "description": "Size of VMs in the VM Scale Set."
       }
     },
+	          "windowsOSVersion": {
+            "type": "string",
+            "defaultValue": "2012-R2-Datacenter",
+            "allowedValues": [
+                "2008-R2-SP1",
+                "2012-Datacenter",
+                "2012-R2-Datacenter"
+            ],
+            "metadata": {
+                "description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter."
+            }
+        },
     "vmssName": {
       "type": "string",
       "metadata": {
@@ -129,6 +141,17 @@
     "appGwId": "[resourceId(parameters('existingAppGatewayResourceGroup'), 'Microsoft.Network/applicationGateways', parameters('existingAppGatewayName'))]",
     "appGwBePoolId": "[concat(variables('appGwId'), '/backendAddressPools/', parameters('existingAppGatewayBackendPoolName'))]",
     "managedImageId": "[resourceId(parameters('existingManagedImageResourceGroup'), 'Microsoft.Compute/images', parameters('existingManagedImageName'))]"
+            "osType": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "[parameters('windowsOSVersion')]",
+            "version": "latest"
+        },
+	        "imageReference": "[variables('osType')]",
+        "computeApiVersion": "2017-03-30",
+        "networkApiVersion": "2017-04-01",
+        "storageApiVersion": "2015-06-15",
+        "insightsApiVersion": "2015-04-01"
   },
   "resources": [
     {
@@ -147,17 +170,19 @@
         "upgradePolicy": {
           "mode": "[parameters('upgradePolicy')]"
         },
-        "virtualMachineProfile": {
-          "storageProfile": {
-            "imageReference": {
-              "id": "[variables('managedImageId')]"
-            }
-          },
-          "osProfile": {
-            "computerNamePrefix": "[variables('vmssName')]",
-			      "adminUsername": "[parameters('adminUsername')]",
-            "adminPassword": "[parameters('adminPassword')]"
-          },
+                "virtualMachineProfile": {
+                    "storageProfile": {
+                        "osDisk": {
+                            "createOption": "FromImage",
+                            "caching": "ReadWrite"
+                        },
+                        "imageReference": "[variables('imageReference')]"
+                    },
+                    "osProfile": {
+                        "computerNamePrefix": "[variables('namingInfix')]",
+                        "adminUsername": "[parameters('adminUsername')]",
+                        "adminPassword": "[parameters('adminPassword')]"
+                    },
           "extensionProfile": {
             "extensions": [
               {
