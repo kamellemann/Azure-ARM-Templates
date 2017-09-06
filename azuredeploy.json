@@ -55,6 +55,12 @@
         "description": "Optional Run List to Execute"
       }
     },
+	      "validation_key": {
+      "type": "securestring",
+      "metadata": {
+        "description": "JSON Escaped Validation Key"
+      }
+    },
     "upgradePolicy": {
       "type": "string",
       "defaultValue": "Manual",
