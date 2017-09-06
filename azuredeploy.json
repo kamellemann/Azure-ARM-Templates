@@ -55,7 +55,7 @@
         "description": "Optional Run List to Execute"
       }
     },
-	      "validation_key": {
+"validation_key": {
       "type": "securestring",
       "metadata": {
         "description": "JSON Escaped Validation Key"
